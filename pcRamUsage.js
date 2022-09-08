@@ -1,9 +1,10 @@
 const os = require('os');
 
 setInterval(() => {
-    const { arch, platform, totalmem, freemem} = os;
-    const tRam = totalmem() /1073741824
-    const fRam = freemem() /1073741824
+    const { cpus, arch, platform, totalmem, freemem} = os;
+    const cpu = cpus();
+    const tRam = totalmem() /1073741824;
+    const fRam = freemem() /1073741824;
     const usage = (fRam/tRam) *100;
     const stats = {
         OS: platform(),
@@ -15,4 +16,4 @@ setInterval(() => {
     console.clear();
     console.table(stats);
     exports.stats = stats;
-}, 1000)
+}, 2000)
